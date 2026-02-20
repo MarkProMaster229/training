@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мои друзья</title>
+    <style>
+        .container { display: flex; flex-wrap: wrap; gap: 20px; }
+        .card { border: 1px solid #ccc; padding: 10px; text-align: center; border-radius: 10px; }
+        .card img { width: 150px; height: 150px; object-fit: cover; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Список</h1>
+    <div class="container">
+        {% for friend in friends %}
+        <div class="card">
+            <img src="{{ url_for('serve_photo', filename=friend.photo) }}" alt="Фото">
+            <h3>{{ friend.name }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
